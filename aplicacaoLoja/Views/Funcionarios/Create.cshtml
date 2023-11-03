@@ -1,13 +1,14 @@
 ﻿@model aplicacaoLoja.Models.Funcionario
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Novo Funcionário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Novo Funcionário</h1>
 
-<h4>Funcionario</h4>
 <hr />
+<br />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -17,37 +18,42 @@
                 <input asp-for="nome" class="form-control" />
                 <span asp-validation-for="nome" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="email" class="control-label"></label>
                 <input asp-for="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="telefone" class="control-label"></label>
                 <input asp-for="telefone" class="form-control" />
                 <span asp-validation-for="telefone" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="cpf" class="control-label"></label>
                 <input asp-for="cpf" class="form-control" />
                 <span asp-validation-for="cpf" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="salario" class="control-label"></label>
                 <input asp-for="salario" class="form-control" />
                 <span asp-validation-for="salario" class="text-danger"></span>
             </div>
+            <br />
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar" class="btn btn-primary border-0 bg-success" style="width: 9rem" /> |
+                <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 9rem" /></a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

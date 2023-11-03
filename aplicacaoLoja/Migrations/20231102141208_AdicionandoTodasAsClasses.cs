@@ -6,24 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace aplicacaoLoja.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class AdicionandoTodasAsClasses : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Categorias",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    descricao = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categorias", x => x.id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Clientes",
                 columns: table => new
@@ -108,7 +95,7 @@ namespace aplicacaoLoja.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     produtoID = table.Column<int>(type: "int", nullable: false),
-                    qtde = table.Column<int>(type: "int", nullable: false)
+                    qtdeEstoque = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -205,9 +192,6 @@ namespace aplicacaoLoja.Migrations
 
             migrationBuilder.DropTable(
                 name: "Produtos");
-
-            migrationBuilder.DropTable(
-                name: "Categorias");
 
             migrationBuilder.DropTable(
                 name: "Fornecedores");

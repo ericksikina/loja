@@ -1,13 +1,13 @@
 ﻿@model aplicacaoLoja.Models.Produto
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Novo Produto";
 }
 
-<h1>Create</h1>
+<h1>Novo Produto</h1>
 
-<h4>Produto</h4>
 <hr />
+<br />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -17,35 +17,40 @@
                 <input asp-for="descricao" class="form-control" />
                 <span asp-validation-for="descricao" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="preco" class="control-label"></label>
                 <input asp-for="preco" class="form-control" />
                 <span asp-validation-for="preco" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="qtdeEstoque" class="control-label"></label>
                 <input asp-for="qtdeEstoque" class="form-control" />
                 <span asp-validation-for="qtdeEstoque" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
-                <label asp-for="categoriaID" class="control-label"></label>
-                <select asp-for="categoriaID" class ="form-control" asp-items="ViewBag.categoriaID"></select>
+                <label asp-for="categoria" class="control-label"></label>
+                <select asp-for="categoriaID" class="form-control" asp-items="ViewBag.categoriaID"></select>
             </div>
+            <br />
             <div class="form-group">
-                <label asp-for="fornecedorID" class="control-label"></label>
-                <select asp-for="fornecedorID" class ="form-control" asp-items="ViewBag.fornecedorID"></select>
+                <label asp-for="fornecedor" class="control-label"></label>
+                <select asp-for="fornecedorID" class="form-control" asp-items="ViewBag.fornecedorID"></select>
             </div>
+            <br />
+            <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Cadastrar" class="btn btn-primary border-0 bg-success" style="width: 9rem" /> |
+                <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 9rem" /></a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

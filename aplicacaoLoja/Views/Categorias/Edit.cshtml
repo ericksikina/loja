@@ -1,11 +1,12 @@
 ﻿@model aplicacaoLoja.Models.Categoria
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Categoria";
 }
 
-<h1>Edit</h1>
-
+<h1>Editar</h1>
+<br />
+<br />
 <h4>Categoria</h4>
 <hr />
 <div class="row">
@@ -18,17 +19,18 @@
                 <input asp-for="descricao" class="form-control" />
                 <span asp-validation-for="descricao" class="text-danger"></span>
             </div>
+            <br />
+            <br />
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary border-0 bg-success" style="width: 6rem" /> |
+                <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 6rem" /></a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

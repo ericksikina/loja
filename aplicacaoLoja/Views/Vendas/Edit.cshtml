@@ -1,11 +1,12 @@
 ﻿@model aplicacaoLoja.Models.Venda
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Edit</h1>
-
+<h1>Editar</h1>
+<br />
+<br />
 <h4>Venda</h4>
 <hr />
 <div class="row">
@@ -18,42 +19,42 @@
                 <input asp-for="data" class="form-control" />
                 <span asp-validation-for="data" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="clienteID" class="control-label"></label>
                 <select asp-for="clienteID" class="form-control" asp-items="ViewBag.clienteID"></select>
                 <span asp-validation-for="clienteID" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="funcionarioID" class="control-label"></label>
                 <select asp-for="funcionarioID" class="form-control" asp-items="ViewBag.funcionarioID"></select>
                 <span asp-validation-for="funcionarioID" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="produtoID" class="control-label"></label>
                 <select asp-for="produtoID" class="form-control" asp-items="ViewBag.produtoID"></select>
                 <span asp-validation-for="produtoID" class="text-danger"></span>
             </div>
+            <br />
             <div class="form-group">
                 <label asp-for="quantidade" class="control-label"></label>
                 <input asp-for="quantidade" class="form-control" />
                 <span asp-validation-for="quantidade" class="text-danger"></span>
             </div>
+            <br />
+            <br />
             <div class="form-group">
-                <label asp-for="total" class="control-label"></label>
-                <input asp-for="total" class="form-control" />
-                <span asp-validation-for="total" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary border-0 bg-success" style="width: 6rem" /> |
+                <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 6rem" /></a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

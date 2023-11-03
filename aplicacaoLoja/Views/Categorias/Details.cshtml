@@ -1,24 +1,27 @@
 ﻿@model aplicacaoLoja.Models.Categoria
 
+
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhar Categoria";
 }
 
-<h1>Details</h1>
-
+<h1>Detalhar</h1>
+<br />
+<br />
 <div>
     <h4>Categoria</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.descricao)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.descricao)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<br />
+<div class="form-group">
+    <a asp-action="Edit" asp-route-id="@Model?.id"><input value="Editar" class="btn btn-primary bg-success border-0 " style="width: 6rem" /></a> |
+    <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 6rem" /></a>
 </div>

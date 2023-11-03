@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/aplicacaoLoja.styles.css" asp-append-version="true" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-black border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">aplicacaoLoja</a>
+                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">Programa Loja</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,14 +21,36 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Categorias" asp-action="Index">Categorias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Funcionarios" asp-action="Index">Funcionários</a>
+                        </li>
+                        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <button class="btn btn-dark dropdown-toggle bg-transparent border-0" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Produtos
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-light">
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Produtos" asp-action="Index">Lista de Produtos</a>
+                                        <a class="nav-link text-dark" asp-area="" asp-controller="Fornecedores" asp-action="Index">Fornecedores</a>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Vendas" asp-action="Index">Vendas</a>
+                            </li>
+                        </div>
                     </ul>
-                    <partial name="_LoginPartial" />
                 </div>
+                <partial name="_LoginPartial" />
             </div>
         </nav>
     </header>
@@ -39,7 +62,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - aplicacaoLoja - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - 2º ADS, T1 - Erick, Guilherme e Leonardo
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
