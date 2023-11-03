@@ -12,8 +12,8 @@ using aplicacaoLoja.Models;
 namespace aplicacaoLoja.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20231102142818_correcaoCompraProduto")]
-    partial class correcaoCompraProduto
+    [Migration("20231103142434_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

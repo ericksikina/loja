@@ -1,9 +1,19 @@
 using aplicacaoLoja.Data;
 using aplicacaoLoja.Models;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
+
+builder.Services.AddAuthentication()
+   .AddGoogle(GoogleOptions =>
+   {
+
+       GoogleOptions.ClientId = config["Authentications:Google:ClientId"];
+       GoogleOptions.ClientSecret = config["Authentications:Google:ClientSecret"];
+   });
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");

@@ -640,6 +640,22 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Authentication.Google/7.0.13": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
         "type": "package",
         "compile": {
@@ -4998,6 +5014,21 @@
         "lib/netstandard1.0/zh-Hant/Humanizer.resources.dll",
         "lib/netstandard2.0/zh-Hant/Humanizer.resources.dll",
         "logo.png"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/7.0.13": {
+      "sha512": "auoXmLwSnmzgmbIyJdElEQ0c/Uj3WL/nrlXU0h0xpKa5ZHSozjt3ywb0O3PJ3NLge0TR4rOT9m8O/8ZSC29eKw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/7.0.13",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net7.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.7.0.13.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.13": {
@@ -11969,6 +12000,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Microsoft.AspNetCore.Authentication.Google >= 7.0.13",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 7.0.13",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 7.0.13",
       "Microsoft.AspNetCore.Identity.UI >= 7.0.13",
@@ -11981,19 +12013,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erick\\.nuget\\packages\\": {}
+    "C:\\Users\\Leonardo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erick\\source\\repos\\aplicacaoLoja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+      "projectUniqueName": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
       "projectName": "aplicacaoLoja",
-      "projectPath": "C:\\Users\\erick\\source\\repos\\aplicacaoLoja\\aplicacaoLoja\\aplicacaoLoja.csproj",
-      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erick\\source\\repos\\aplicacaoLoja\\aplicacaoLoja\\obj\\",
+      "projectPath": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+      "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12019,6 +12051,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[7.0.13, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[7.0.13, )"
