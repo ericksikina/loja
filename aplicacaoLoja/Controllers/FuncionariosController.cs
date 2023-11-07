@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace aplicacaoLoja.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class FuncionariosController : Controller
     {
         private readonly Contexto _context;
@@ -152,6 +152,19 @@ namespace aplicacaoLoja.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Filtrar(string busca)
+        {
+            var funcionarios = _context.Funcionarios
+                                     .Where(fun => fun.salario.ToString().Contains(busca))
+                                     .ToList();
+            if (funcionarios == null)
+            {
+                return NotFound();
+            }
+
+            return View(funcionarios);
         }
 
         private bool FuncionarioExists(int id)

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {}
+    "C:\\Users\\erick\\source\\repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {
+    "C:\\Users\\erick\\source\\repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+        "projectUniqueName": "C:\\Users\\erick\\source\\repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
         "projectName": "aplicacaoLoja",
-        "projectPath": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
-        "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\obj\\",
+        "projectPath": "C:\\Users\\erick\\source\\repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+        "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\erick\\source\\repos\\loja\\aplicacaoLoja\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -72,7 +72,7 @@
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[7.0.12, )"
+              "version": "[7.0.13, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -82,7 +82,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[7.0.9, )"
+              "version": "[7.0.11, )"
             }
           },
           "imports": [

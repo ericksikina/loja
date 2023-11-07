@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace aplicacaoLoja.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class ProdutosController : Controller
     {
         private readonly Contexto _context;
@@ -165,6 +165,21 @@ namespace aplicacaoLoja.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Filtrar(string busca)
+        {
+            var produtos = _context.Produtos
+                                     .Include(cat => cat.categoria)
+                                     .Include(forn => forn.fornecedor)
+                                     .Where(prod => prod.categoria.descricao.Contains(busca))
+                                     .ToList();
+            if (produtos == null)
+            {
+                return NotFound();
+            }
+
+            return View(produtos);
         }
 
         private bool ProdutoExists(int id)

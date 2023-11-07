@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace aplicacaoLoja.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class FornecedoresController : Controller
     {
         private readonly Contexto _context;
@@ -152,6 +152,19 @@ namespace aplicacaoLoja.Controllers
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Filtrar(string busca)
+        {
+            var fornecedores = _context.Fornecedores
+                                     .Where(forn => forn.nome.Contains(busca))
+                                     .ToList();
+            if (fornecedores == null)
+            {
+                return NotFound();
+            }
+
+            return View(fornecedores);
         }
 
         private bool FornecedorExists(int id)
