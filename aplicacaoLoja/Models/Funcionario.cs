@@ -21,7 +21,7 @@ namespace aplicacaoLoja.Models
         public string email { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório")]
-        [StringLength(14)]
+        [StringLength(18)]
         [Display(Name = "Telefone")]
         public string telefone { get; set; }
 
