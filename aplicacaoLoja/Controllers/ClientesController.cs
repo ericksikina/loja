@@ -21,9 +21,16 @@ namespace aplicacaoLoja.Controllers
         }
 
         // GET: Clientes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string busca)
         {
-              return View(await _context.Clientes.ToListAsync());
+            List<Cliente> cliente = _context.Clientes.ToList();
+
+            if (busca != null)
+            {
+                cliente = _context.Clientes.Where(cli => cli.nome.Contains(busca)).ToList();
+            }
+
+            return View(cliente);
         }
 
         // GET: Clientes/Details/5

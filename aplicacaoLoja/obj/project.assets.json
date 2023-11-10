@@ -12013,19 +12013,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\erick\\.nuget\\packages\\": {}
+    "C:\\Users\\Leonardo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+      "projectUniqueName": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
       "projectName": "aplicacaoLoja",
-      "projectPath": "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
-      "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\obj\\",
+      "projectPath": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+      "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leonardo\\Desktop\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -21,9 +21,16 @@ namespace aplicacaoLoja.Controllers
         }
 
         // GET: Fornecedores
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string busca)
         {
-              return View(await _context.Fornecedores.ToListAsync());
+            List<Fornecedor> fornecedor = _context.Fornecedores.ToList();
+
+            if (busca != null)
+            {
+                fornecedor = _context.Fornecedores.Where(f => f.nome.Contains(busca)).ToList();
+            }
+
+            return View(fornecedor);
         }
 
         // GET: Fornecedores/Details/5

@@ -21,10 +21,46 @@ namespace aplicacaoLoja.Controllers
         }
 
         // GET: Produtos
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string busca, string tipo)
         {
             var contexto = _context.Produtos.Include(p => p.categoria).Include(p => p.fornecedor);
-            return View(await contexto.ToListAsync());
+
+            List<Produto> produto = _context.Produtos
+                .Include(p => p.categoria)
+                .Include(p => p.fornecedor)
+                .ToList();
+
+            if (busca != null)
+            {
+                if (tipo == "produto")
+                {
+                    produto = _context.Produtos
+                        .Include(p => p.categoria)
+                        .Include(p => p.fornecedor)
+                        .Where(p => p.descricao.Contains(busca))
+                        .ToList();
+                }
+
+                else if (tipo == "categoria")
+                {
+                    produto = _context.Produtos
+                        .Include(p => p.categoria)
+                        .Include(p => p.fornecedor)
+                        .Where(p => p.categoria.descricao.Contains(busca))
+                        .ToList();
+                }
+
+                else if (tipo == "categoria")
+                {
+                    produto = _context.Produtos
+                        .Include(p => p.categoria)
+                        .Include(p => p.fornecedor)
+                        .Where(p => p.fornecedor.nome.Contains(busca))
+                        .ToList();
+                }
+            }
+
+            return View(produto);
         }
 
         // GET: Produtos/Details/5

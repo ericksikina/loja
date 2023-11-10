@@ -21,10 +21,38 @@ namespace aplicacaoLoja.Controllers
         }
 
         // GET: Vendas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string busca, string tipo)
         {
             var contexto = _context.Vendas.Include(v => v.cliente).Include(v => v.funcionario).Include(v => v.produto);
-            return View(await contexto.ToListAsync());
+
+            List<Venda> vendas = _context.Vendas.Include(v => v.cliente).Include(v => v.funcionario).Include(v => v.produto).ToList();
+
+            if (busca != null)
+            {
+                if (tipo == "cliente")
+                {
+                    vendas = _context.Vendas.Include(v => v.cliente).Include(v => v.funcionario).Include(v => v.produto)
+                        .Where(p => p.cliente.nome.Contains(busca))
+                        .ToList();
+                }
+
+                else if (tipo == "funcionario")
+                {
+                    vendas = _context.Vendas.Include(v => v.cliente).Include(v => v.funcionario).Include(v => v.produto)
+                        .Where(p => p.funcionario.nome.Contains(busca))
+                        .ToList();
+                }
+
+                else if (tipo == "produto")
+                {
+                    vendas = _context.Vendas.Include(v => v.cliente).Include(v => v.funcionario).Include(v => v.produto)
+                        .Where(p => p.produto.descricao.Contains(busca))
+                        .ToList();
+                }
+
+            }
+
+            return View(vendas);
         }
 
         // GET: Vendas/Details/5

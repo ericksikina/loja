@@ -21,9 +21,27 @@ namespace aplicacaoLoja.Controllers
         }
 
         // GET: Funcionarios
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string busca, string tipo)
         {
-              return View(await _context.Funcionarios.ToListAsync());
+            List<Funcionario> funcionario = _context.Funcionarios.ToList();
+
+            if (busca != null)
+            {
+                if (tipo == "nome")
+                    funcionario = _context.Funcionarios.Where(fun => fun.nome.Contains(busca)).ToList();
+
+                else if (tipo == "email")
+                    funcionario = _context.Funcionarios.Where(fun => fun.email.Contains(busca)).ToList();
+
+                else if (tipo == "phone")
+                    funcionario = _context.Funcionarios.Where(fun => fun.telefone.Contains(busca)).ToList();
+
+                else if (tipo == "cpf")
+                    funcionario = _context.Funcionarios.Where(fun => fun.cpf.Contains(busca)).ToList();
+
+            }
+
+            return View(funcionario);
         }
 
         // GET: Funcionarios/Details/5

@@ -21,9 +21,16 @@ namespace aplicacaoLoja.Controllers
         }
 
         // GET: Categorias
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string busca)
         {
-              return View(await _context.Categorias.ToListAsync());
+            List<Categoria> categoria = _context.Categorias.ToList();
+
+            if (busca != null)
+            {
+                categoria = _context.Categorias.Where(cat => cat.descricao.Contains(busca)).ToList();
+            }
+
+            return View(categoria);
         }
 
         // GET: Categorias/Details/5
