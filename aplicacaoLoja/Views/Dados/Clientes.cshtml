@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<aplicacaoLoja.Models.Cliente>
 
 @{
-    ViewData["Title"] = "Clientes";
+    ViewData["Title"] = "Gerador de Clientes";
 }
 
-<h1>Clientes</h1>
+<h1>Gerador de Clientes</h1>
+<br />
+<div class="form-group">
+    <a asp-controller="Clientes" asp-action="Index"><input type="submit" value="Voltar" class="btn btn-primary bg-danger border-0" /></a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<br />
+<br />
 <table class="table">
     <thead>
         <tr>
@@ -35,11 +38,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.cpf)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }

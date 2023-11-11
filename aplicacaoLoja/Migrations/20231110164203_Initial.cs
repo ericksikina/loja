@@ -6,11 +6,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace aplicacaoLoja.Migrations
 {
     /// <inheritdoc />
-    public partial class AdicionandoTodasAsClasses : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    descricao = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Clientes",
                 columns: table => new
@@ -18,7 +31,7 @@ namespace aplicacaoLoja.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nome = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    telefone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    telefone = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     cpf = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false)
                 },
                 constraints: table =>
@@ -33,9 +46,9 @@ namespace aplicacaoLoja.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nome = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    telefone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    telefone = table.Column<string>(type: "nvarchar(17)", maxLength: 17, nullable: false),
                     endereco = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
-                    cnpj = table.Column<string>(type: "nvarchar(18)", maxLength: 18, nullable: false)
+                    cnpj = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,7 +63,7 @@ namespace aplicacaoLoja.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     nome = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     email = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    telefone = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
+                    telefone = table.Column<string>(type: "nvarchar(18)", maxLength: 18, nullable: false),
                     cpf = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     salario = table.Column<double>(type: "float", nullable: false)
                 },
@@ -95,7 +108,7 @@ namespace aplicacaoLoja.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     produtoID = table.Column<int>(type: "int", nullable: false),
-                    qtdeEstoque = table.Column<int>(type: "int", nullable: false)
+                    qtde = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -192,6 +205,9 @@ namespace aplicacaoLoja.Migrations
 
             migrationBuilder.DropTable(
                 name: "Produtos");
+
+            migrationBuilder.DropTable(
+                name: "Categorias");
 
             migrationBuilder.DropTable(
                 name: "Fornecedores");

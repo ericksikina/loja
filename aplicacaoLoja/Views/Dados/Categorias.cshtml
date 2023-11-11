@@ -1,14 +1,18 @@
 ﻿@model IEnumerable<aplicacaoLoja.Models.Categoria>
 
 @{
-    ViewData["Title"] = "Categorias";
+    ViewData["Title"] = "Gerador de Categorias";
 }
 
-<h1>Categorias</h1>
+<h1>Gerador de Categorias</h1>
+<br />
+<div class="form-group">
+    <a asp-controller="Categorias" asp-action="Index"><input type="submit" value="Voltar" class="btn btn-primary bg-danger border-0" /></a>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<br />
+<br />
+
 <table class="table">
     <thead>
         <tr>
@@ -23,11 +27,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.descricao)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
             </td>
         </tr>
 }

@@ -12,8 +12,8 @@ using aplicacaoLoja.Models;
 namespace aplicacaoLoja.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20231110140112_CorrecaoTelefone4")]
-    partial class CorrecaoTelefone4
+    [Migration("20231110164203_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -153,8 +153,8 @@ namespace aplicacaoLoja.Migrations
 
                     b.Property<string>("telefone")
                         .IsRequired()
-                        .HasMaxLength(14)
-                        .HasColumnType("nvarchar(14)");
+                        .HasMaxLength(18)
+                        .HasColumnType("nvarchar(18)");
 
                     b.HasKey("id");
 
