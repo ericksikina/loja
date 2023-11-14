@@ -18,10 +18,9 @@ namespace aplicacaoLoja.Controllers
         {
             contexto.Database.ExecuteSqlRaw("delete from categorias");
             contexto.Database.ExecuteSqlRaw("DBCC CHECKIDENT('categorias', RESEED, 0)");
-            Random randNum = new Random();
 
-            string[] vCategoria = { "Calça", "Camiseta", "Moletom", "Bermuda", "Regata", "Polo"};
-            
+            string[] vCategoria = { "Bermuda", "Calça", "Camiseta", "Moletom", "Polo", "Regata" };
+
             for (int i = 0; i < 6; i++)
             {
 
@@ -40,7 +39,6 @@ namespace aplicacaoLoja.Controllers
         {
             contexto.Database.ExecuteSqlRaw("delete from clientes");
             contexto.Database.ExecuteSqlRaw("DBCC CHECKIDENT('clientes', RESEED, 0)");
-            Random randNum = new Random();
 
             string[] vNomeMas = { "Miguel", "Arthur", "Bernardo", "Heitor", "Davi", "Lorenzo", "Théo", "Pedro", "Gabriel", "Enzo", "Matheus", "Lucas", "Benjamin", "Nicolas", "Guilherme", "Rafael", "Joaquim", "Samuel", "Enzo Gabriel", "João Miguel", "Henrique", "Gustavo", "Murilo", "Pedro Henrique", "Pietro", "Lucca", "Felipe", "João Pedro", "Isaac", "Benício", "Daniel", "Anthony", "Leonardo", "Davi Lucca", "Bryan", "Eduardo", "João Lucas", "Victor", "João", "Cauã", "Antônio", "Vicente", "Caleb", "Gael", "Bento", "Caio", "Emanuel", "Vinícius", "João Guilherme", "Davi Lucas", "Noah", "João Gabriel", "João Victor", "Luiz Miguel", "Francisco", "Kaique", "Otávio", "Augusto", "Levi", "Yuri", "Enrico", "Thiago", "Ian", "Victor Hugo", "Thomas", "Henry", "Luiz Felipe", "Ryan", "Arthur Miguel", "Davi Luiz", "Nathan", "Pedro Lucas", "Davi Miguel", "Raul", "Pedro Miguel", "Luiz Henrique", "Luan", "Erick", "Martin", "Bruno", "Rodrigo", "Luiz Gustavo", "Arthur Gabriel", "Breno", "Kauê", "Enzo Miguel", "Fernando", "Arthur Henrique", "Luiz Otávio", "Carlos Eduardo", "Tomás", "Lucas Gabriel", "André", "José", "Yago", "Danilo", "Anthony Gabriel", "Ruan", "Miguel Henrique", "Oliver" };
             string[] vNomeFem = { "Alice", "Sophia", "Helena", "Valentina", "Laura", "Isabella", "Manuela", "Júlia", "Heloísa", "Luiza", "Maria Luiza", "Lorena", "Lívia", "Giovanna", "Maria Eduarda", "Beatriz", "Maria Clara", "Cecília", "Eloá", "Lara", "Maria Júlia", "Isadora", "Mariana", "Emanuelly", "Ana Júlia", "Ana Luiza", "Ana Clara", "Melissa", "Yasmin", "Maria Alice", "Isabelly", "Lavínia", "Esther", "Sarah", "Elisa", "Antonella", "Rafaela", "Maria Cecília", "Liz", "Marina", "Nicole", "Maitê", "Isis", "Alícia", "Luna", "Rebeca", "Agatha", "Letícia", "Maria-", "Gabriela", "Ana Laura", "Catarina", "Clara", "Ana Beatriz", "Vitória", "Olívia", "Maria Fernanda", "Emilly", "Maria Valentina", "Milena", "Maria Helena", "Bianca", "Larissa", "Mirella", "Maria Flor", "Allana", "Ana Sophia", "Clarice", "Pietra", "Maria Vitória", "Maya", "Laís", "Ayla", "Ana Lívia", "Eduarda", "Mariah", "Stella", "Ana", "Gabrielly", "Sophie", "Carolina", "Maria Laura", "Maria Heloísa", "Maria Sophia", "Fernanda", "Malu", "Analu", "Amanda", "Aurora", "Maria Isis", "Louise", "Heloise", "Ana Vitória", "Ana Cecília", "Ana Liz", "Joana", "Luana", "Antônia", "Isabel", "Bruna" };
@@ -97,9 +95,8 @@ namespace aplicacaoLoja.Controllers
         {
             contexto.Database.ExecuteSqlRaw("delete from fornecedores");
             contexto.Database.ExecuteSqlRaw("DBCC CHECKIDENT('fornecedores', RESEED, 0)");
-            Random randNum = new Random();
 
-            string[] vNome = { "Nike", "Adidas", "Puma", "Levi's", "Vans", "Gap", "Champion", "Under Armour", "Tommy Hilfiger", "Calvin Klein", };
+            string[] vNome = { "Adidas", "Calvin Klein", "Champion", "Gap", "Levi's", "Nike", "Puma", "Tommy Hilfiger", "Under Armour", "Vans" };
             string[] vTelefone = GerarNumerosCelular(10);
             string[] vEndereco = { "Rua A n°123", "Avenida B n°456 ", "Travessa C n°789", "Alameda D n°101", "Praça E n°202", "Estrada F n°303", "Avenida G n°404", "Rua H n°505", "Travessa I n°606", "Alameda J n°707" };
             string[] vCnpj = GerarCNPJs(10);
@@ -127,19 +124,22 @@ namespace aplicacaoLoja.Controllers
             contexto.Database.ExecuteSqlRaw("DBCC CHECKIDENT('produtos', RESEED, 0)");
             Random randNum = new Random();
 
-            string[] vProduto = { "Calça", "Camiseta", "Moletom", "Bermuda", "Regata", "Polo"};
-            string[] vMarca = { "Nike", "Adidas", "Puma", "Levi's", "Vans", "Gap", "Champion", "Under Armour", "Tommy Hilfiger", "Calvin Klein"};
+            string[] vProduto = {"Bermuda", "Calça", "Camiseta", "Moletom", "Polo", "Regata"};
+            string[] vMarca = {"Adidas", "Calvin Klein", "Champion", "Gap", "Levi's", "Nike", "Puma", "Tommy Hilfiger", "Under Armour", "Vans"};
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 50; i++) 
             {
 
                 Produto produto = new Produto();
 
-                produto.descricao = vProduto[randNum.Next() % 6] + " " + vMarca[randNum.Next() % 10];
+                int cat = randNum.Next(1, 6);
+                int forn = randNum.Next(1, 10);
+
+                produto.descricao = vProduto[cat] + " " + vMarca[forn];
                 produto.preco = randNum.Next(70, 1200);
-                produto.qtdeEstoque = randNum.Next(1, 100); ;
-                produto.categoriaID = randNum.Next(1, 6); ;
-                produto.fornecedorID = randNum.Next(1,10);
+                produto.qtdeEstoque = randNum.Next(1, 100);
+                produto.categoriaID = ++cat; 
+                produto.fornecedorID = ++forn;
 
                 contexto.Produtos.Add(produto);
             }
@@ -157,16 +157,16 @@ namespace aplicacaoLoja.Controllers
             contexto.Database.ExecuteSqlRaw("DBCC CHECKIDENT('vendas', RESEED, 0)");
             Random randNum = new Random();
 
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 50; i++)
             {
 
                 Venda venda = new Venda();
 
                 venda.data = Convert.ToDateTime("01/01/2010").AddDays(randNum.Next(0, 5036));
                 venda.clienteID = randNum.Next(1, 100);
-                venda.funcionarioID = randNum.Next(1, 100); ;
+                venda.funcionarioID = randNum.Next(1, 100);
                 venda.produtoID = randNum.Next(1, 50);
-                venda.quantidade = randNum.Next(1, 40);
+                venda.quantidade = randNum.Next(1, 15);
 
                 Produto produto = contexto.Produtos.Find(venda.produtoID);
                 if (produto != null)
@@ -180,7 +180,7 @@ namespace aplicacaoLoja.Controllers
             return View(contexto.Vendas
                 .Include(cli => cli.cliente)
                 .Include(func => func.funcionario)
-                .Include(prod => prod.produto)             
+                .Include(prod => prod.produto)
                 .OrderBy(o => o.data).ToList());
         }
 

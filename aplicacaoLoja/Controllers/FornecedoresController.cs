@@ -161,19 +161,6 @@ namespace aplicacaoLoja.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Filtrar(string busca)
-        {
-            var fornecedores = _context.Fornecedores
-                                     .Where(forn => forn.nome.Contains(busca))
-                                     .ToList();
-            if (fornecedores == null)
-            {
-                return NotFound();
-            }
-
-            return View(fornecedores);
-        }
-
         private bool FornecedorExists(int id)
         {
           return _context.Fornecedores.Any(e => e.id == id);

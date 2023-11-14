@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using aplicacaoLoja.Models.Consulta.Agrupamento;
+using aplicacaoLoja.Models.Consulta.Pivot;
 
 namespace aplicacaoLoja.Models
 {
@@ -13,5 +15,7 @@ namespace aplicacaoLoja.Models
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<CompraProduto> CompraProdutos { get; set; }
         public DbSet<Venda> Vendas { get; set; }
+        public DbSet<aplicacaoLoja.Models.Consulta.Agrupamento.AgrVendas> AgrVendas { get; set; }
+        public DbSet<aplicacaoLoja.Models.Consulta.Pivot.ConsultaPivot> ConsultaPivot { get; set; }
     }
 }

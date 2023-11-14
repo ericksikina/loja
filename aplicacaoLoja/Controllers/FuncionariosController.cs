@@ -172,19 +172,6 @@ namespace aplicacaoLoja.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Filtrar(string busca)
-        {
-            var funcionarios = _context.Funcionarios
-                                     .Where(fun => fun.salario.ToString().Contains(busca))
-                                     .ToList();
-            if (funcionarios == null)
-            {
-                return NotFound();
-            }
-
-            return View(funcionarios);
-        }
-
         private bool FuncionarioExists(int id)
         {
           return _context.Funcionarios.Any(e => e.id == id);

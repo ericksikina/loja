@@ -52,6 +52,8 @@ namespace aplicacaoLoja.Controllers
 
             }
 
+            ViewBag.Total = TotalizarVendas(vendas);
+
             return View(vendas);
         }
 
@@ -225,20 +227,11 @@ namespace aplicacaoLoja.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Filtrar(string busca)
+        private decimal TotalizarVendas(List<Venda> vendas)
         {
-            var vendas = _context.Vendas
-                                     .Include(cli => cli.cliente)
-                                     .Include(func => func.funcionario)
-                                     .Include(prod => prod.produto)
-                                     .Where(ven => ven.funcionario.nome.Contains(busca))
-                                     .ToList();
-            if (vendas == null)
-            {
-                return NotFound();
-            }
+            decimal total = vendas.Sum(o => o.total);
 
-            return View(vendas);
+            return total;
         }
 
         private bool VendaExists(int id)

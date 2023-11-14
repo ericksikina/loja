@@ -161,19 +161,6 @@ namespace aplicacaoLoja.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Filtrar(string busca)
-        {
-            var clientes = _context.Clientes
-                                     .Where(cli => cli.nome.Contains(busca))
-                                     .ToList();
-            if (clientes == null)
-            {
-                return NotFound();
-            }
-
-            return View(clientes);
-        }
-
         private bool ClienteExists(int id)
         {
           return _context.Clientes.Any(e => e.id == id);

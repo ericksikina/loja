@@ -203,21 +203,6 @@ namespace aplicacaoLoja.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Filtrar(string busca)
-        {
-            var produtos = _context.Produtos
-                                     .Include(cat => cat.categoria)
-                                     .Include(forn => forn.fornecedor)
-                                     .Where(prod => prod.categoria.descricao.Contains(busca))
-                                     .ToList();
-            if (produtos == null)
-            {
-                return NotFound();
-            }
-
-            return View(produtos);
-        }
-
         private bool ProdutoExists(int id)
         {
             return _context.Produtos.Any(e => e.id == id);

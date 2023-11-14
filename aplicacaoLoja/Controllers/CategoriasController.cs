@@ -161,19 +161,6 @@ namespace aplicacaoLoja.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Filtrar(string busca)
-        {
-            var categorias = _context.Categorias
-                                     .Where(cat => cat.descricao.Contains(busca))
-                                     .ToList();
-            if(categorias == null)
-            {
-                return NotFound();
-            }
-
-            return View(categorias);
-        }
-
         private bool CategoriaExists(int id)
         {
           return _context.Categorias.Any(e => e.id == id);
