@@ -17,15 +17,17 @@ namespace aplicacaoLoja.Controllers
             contexto = context;
         }
 
-        public IActionResult PivotVendas(int ano)
+        public IActionResult PivotVendas(string ano)
         {
+            int anoInt = Convert.ToInt32(ano);
+
             IEnumerable<LstVendas> lstVendas =
                 from item in contexto.Vendas
                 .Include(o => o.cliente)
                 .Include(o => o.funcionario)
                 .Include (o => o.produto)
                 .OrderBy(o => o.clienteID)
-                .Where(o => o.data.Year == ano)
+                .Where(o => o.data.Year == anoInt)
                 .ToList()
                 select new LstVendas
                 {

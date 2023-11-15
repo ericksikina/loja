@@ -1,20 +1,23 @@
 ﻿@model aplicacaoLoja.Models.CompraProduto
 
 @{
-    ViewData["Title"] = "CompraProduto";
+    ViewData["Title"] = "Editar";
 }
 
-<h1>Comprar Produto</h1>
-
-<hr />
+<h1>Editar</h1>
 <br />
+<br />
+<h4>CompraProduto</h4>
+<hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
             <div class="form-group">
                 <label asp-for="produtoID" class="control-label"></label>
-                <select asp-for="produtoID" class ="form-control" asp-items="ViewBag.produtoID"></select>
+                <select asp-for="produtoID" class="form-control" asp-items="ViewBag.produtoID"></select>
+                <span asp-validation-for="produtoID" class="text-danger"></span>
             </div>
             <br />
             <div class="form-group">
@@ -25,8 +28,8 @@
             <br />
             <br />
             <div class="form-group">
-                <input type="submit" value="Cadastrar" class="btn btn-primary border-0 bg-success" style="width: 9rem" /> |
-                <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 9rem" /></a>
+                <input type="submit" value="Salvar" class="btn btn-primary border-0 bg-success" style="width: 6rem" /> |
+                <a asp-action="Index"><input value="Voltar" class="btn btn-primary bg-warning text-dark border-0 " style="width: 6rem" /></a>
             </div>
         </form>
     </div>
