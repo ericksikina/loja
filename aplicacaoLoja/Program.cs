@@ -8,7 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 var config = builder.Configuration;
 
-
 builder.Services.AddAuthentication()
    .AddGoogle(GoogleOptions =>
    {
@@ -16,7 +15,6 @@ builder.Services.AddAuthentication()
        GoogleOptions.ClientId = config["Authentications:Google:ClientId"];
        GoogleOptions.ClientSecret = config["Authentications:Google:ClientSecret"];
    });
-
 
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");

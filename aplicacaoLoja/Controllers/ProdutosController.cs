@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace aplicacaoLoja.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class ProdutosController : Controller
     {
         private readonly Contexto _context;

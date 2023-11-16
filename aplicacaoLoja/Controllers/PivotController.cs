@@ -5,9 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using aplicacaoLoja.Extra;
 using aplicacaoLoja.Models.Consulta.Pivot;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace aplicacaoLoja.Controllers
 {
+    [Authorize]
     public class PivotController : Controller
     {
         private readonly Contexto contexto;
@@ -17,9 +19,8 @@ namespace aplicacaoLoja.Controllers
             contexto = context;
         }
 
-        public IActionResult PivotVendas(string ano)
+        public IActionResult PivotVendas()
         {
-            int anoInt = Convert.ToInt32(ano);
 
             IEnumerable<LstVendas> lstVendas =
                 from item in contexto.Vendas
@@ -27,7 +28,6 @@ namespace aplicacaoLoja.Controllers
                 .Include(o => o.funcionario)
                 .Include (o => o.produto)
                 .OrderBy(o => o.clienteID)
-                .Where(o => o.data.Year == anoInt)
                 .ToList()
                 select new LstVendas
                 {
@@ -43,12 +43,12 @@ namespace aplicacaoLoja.Controllers
             IEnumerable<VendasMes> agrVendasMes =
                 from linha in lstVendas
                 .ToList()
-                group linha by new { linha.clienteId, linha.data.Month}
+                group linha by new { linha.cliente, linha.data.Month}
                 into grupo
-                orderby grupo.Key.clienteId
+                orderby grupo.Key.cliente
                 select new VendasMes
                 {
-                    cliente = grupo.Key.clienteId,
+                    cliente = grupo.Key.cliente,
                     mes = grupo.Key.Month,
                     total = grupo.Sum(o => o.total)
                 };
@@ -62,7 +62,7 @@ namespace aplicacaoLoja.Controllers
             lista = (from DataRow coluna in PivotTableInsArea.Rows
                      select new ConsultaPivot()
                      {
-                         cliente = Convert.ToInt32(coluna[0]),
+                         cliente = coluna[0].ToString(),
                          mes1 = Convert.ToSingle(coluna[1]),
                          mes2 = Convert.ToSingle(coluna[2]),
                          mes3 = Convert.ToSingle(coluna[3]),

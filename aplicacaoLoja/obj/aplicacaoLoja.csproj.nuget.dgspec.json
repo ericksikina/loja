@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Leonardo\\OneDrive - Fundação Educacional do Município de Assis\\Área de Trabalho\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {}
+    "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Leonardo\\OneDrive - Fundação Educacional do Município de Assis\\Área de Trabalho\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {
+    "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Leonardo\\OneDrive - Fundação Educacional do Município de Assis\\Área de Trabalho\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+        "projectUniqueName": "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
         "projectName": "aplicacaoLoja",
-        "projectPath": "C:\\Users\\Leonardo\\OneDrive - Fundação Educacional do Município de Assis\\Área de Trabalho\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
-        "packagesPath": "C:\\Users\\Leonardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Leonardo\\OneDrive - Fundação Educacional do Município de Assis\\Área de Trabalho\\ADS\\2Ano\\LP\\C#\\Loja\\aplicacaoLoja\\obj\\",
+        "projectPath": "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\aplicacaoLoja.csproj",
+        "packagesPath": "C:\\Users\\erick\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\erick\\Source\\Repos\\loja\\aplicacaoLoja\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Leonardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\erick\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

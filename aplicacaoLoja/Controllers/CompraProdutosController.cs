@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using aplicacaoLoja.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace aplicacaoLoja.Controllers
 {
+    [Authorize]
     public class CompraProdutosController : Controller
     {
         private readonly Contexto _context;

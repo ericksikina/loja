@@ -1,10 +1,12 @@
 ﻿using aplicacaoLoja.Models;
 using aplicacaoLoja.Models.Consulta.Agrupamento;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace aplicacaoLoja.Controllers
 {
+    [Authorize]
     public class AgrupamentoController : Controller
     {
 

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace aplicacaoLoja.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class VendasController : Controller
     {
         private readonly Contexto _context;
@@ -221,6 +221,11 @@ namespace aplicacaoLoja.Controllers
             if (venda != null)
             {
                 _context.Vendas.Remove(venda);
+
+
+                Produto produto = _context.Produtos.Find(venda.produtoID);
+                produto.atualizarEstoqueVenda(venda.quantidade * -1);
+                _context.Update(produto);
             }
 
             await _context.SaveChangesAsync();

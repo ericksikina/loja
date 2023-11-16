@@ -3,7 +3,7 @@
     public class ConsultaPivot
     {
         public int id { get; set; }
-        public int cliente { get; set; }
+        public String cliente { get; set; }
         public float mes1 { get; set; }
         public float mes2 { get; set; }
         public float mes3 { get; set; }

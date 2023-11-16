@@ -1,10 +1,12 @@
 ﻿using aplicacaoLoja.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 namespace aplicacaoLoja.Controllers
 {
+    [Authorize]
     public class DadosController : Controller
     {
         private readonly Contexto contexto;
